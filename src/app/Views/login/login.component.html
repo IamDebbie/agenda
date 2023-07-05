@@ -1,0 +1,47 @@
+<body>
+    <section class="formulario">
+        <h1>Bienvenido al panel de administración</h1>
+        <p class="descripcion">Inicia sesión para empezar el recorrido por la agenda digital</p>
+        <div class="parte1">
+            <div>
+                <input type="radio" name="radio" id="docente" [checked]="radio === '2'" (change)="handleRadioChange('2')"> Docente
+            </div>
+            <div>
+                <input type="radio" name="radio" id="acudiente" [checked]="radio === '3'" (change)="handleRadioChange('3')"> Acudiente
+            </div>
+        </div>
+        <div class="parte2">
+            <input class="form-control" type="text" name="usuario" id="usuario" [(ngModel)]="usuario" placeholder="Documento de identidad">
+            <input class="form-control" type="password" name="password" id="password" [(ngModel)]="password" placeholder="Contraseña">
+        </div>
+        <div class="parte3 d-flex justify-content-end">
+            <p class="cursor-pointer" type="button" data-bs-toggle="modal" data-bs-target="#oc"><u>¿Olvidaste tu
+                    contraseña?</u></p>
+        </div>
+        <div class="d-flex justify-content-between botones">
+            <button type="button" (click)="iniciarSesion()">Ingresar</button>
+            <button routerLink="/inicio">Volver</button>
+        </div>
+    </section>
+    
+    <div class="modal fade" id="oc" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Recuperación de contraseña</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Escribe tu documento de identidad</p>
+                    <input class="form-control mt-3" type="text" name="documentoR" id="documentoR">
+                    <h6 class="mt-3">Te enviaremos un correo electrónico con tu contraseña</h6>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary" >Enviar contraseña</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
